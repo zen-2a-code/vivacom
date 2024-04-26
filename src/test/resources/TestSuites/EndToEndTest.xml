@@ -1,0 +1,85 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="EndToEndTest">
+
+    <test name="HomePageNavBarBtnTest">
+        <!--        <parameter name="vivacomHomePageUrl" value=""/>-->
+        <groups>
+            <run>
+                <include name="EndToEndTest"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="bg.vivacom.HomePageTest"/>
+            <class name="bg.vivacom.BrowserDriverSetup"/>
+        </classes>
+    </test>
+
+    <test name="FilterTest">
+        <classes>
+            <class name="bg.vivacom.SmartPhonesProcuctsTest">
+                <methods>
+                    <include name="filterDevices"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="selectApple15Plus128">
+        <classes>
+            <class name="bg.vivacom.SmartPhonesProcuctsTest">
+                <methods>
+                    <include name="selectApple15Plus128"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Apple15PluspagePurchaseTest">
+        <groups>
+            <run>
+                <include name="EndToEndTest"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="bg.vivacom.Iphone15PlusTest"/>
+            <class name="bg.vivacom.BrowserDriverSetup"/>
+        </classes>
+    </test>
+
+    <test name="ShoppingCardVerification">
+        <groups>
+            <run>
+                <include name="EndToEndTest"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="bg.vivacom.PhoneShoppingCardVerificationTest"/>
+            <class name="bg.vivacom.BrowserDriverSetup"/>
+        </classes>
+    </test>
+
+    <test name="ContinueShopping">
+        <groups>
+            <run>
+                <include name="EndToEndTest"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="bg.vivacom.ContinueShoppingTest"/>
+            <class name="bg.vivacom.BrowserDriverSetup"/>
+        </classes>
+    </test>
+
+    <test name="CaseAndPhoneVerificationTest">
+        <groups>
+            <run>
+                <include name="EndToEndTest"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="bg.vivacom.CaseAndPhoneVerificationTest"/>
+            <class name="bg.vivacom.BrowserDriverSetup"/>
+        </classes>
+    </test>
+
+</suite>
