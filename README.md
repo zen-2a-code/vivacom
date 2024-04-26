@@ -1,2 +1,2 @@
 # vivacom
-end-to-end
+Run "EndToEndTestSuite" 
