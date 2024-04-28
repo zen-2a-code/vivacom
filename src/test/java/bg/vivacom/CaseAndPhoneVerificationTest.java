@@ -52,20 +52,14 @@ public class CaseAndPhoneVerificationTest {
 
     @Test(priority = 5)
     public void removeAllItemsTest() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            System.err.println("Thread interrupted while sleeping");
-        }
-        shoppingCardPage.removeLastAddedItemFromShoppingCard();
+        shoppingCardPage.removeAllElements();
     }
 
     @Test(priority = 6)
     public void checkBasketTest() {
         String actualResult = shoppingCardPage.getEmptyBasketText();
         String expectedResult = "Вижте актуалните ни оферти и изберете най-подходящата за вас. Ако искате да разгледате предходно добавени продукти, натиснете \"Вход\".";
-        Assert.assertEquals(actualResult,expectedResult);
+        Assert.assertEquals(actualResult, expectedResult);
     }
 
 }

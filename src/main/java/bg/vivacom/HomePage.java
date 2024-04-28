@@ -12,15 +12,13 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
+    }
 
+    public void clickCookiesBtn(){
         // cookie banner:
         // Even though the banner it’s not explicitly mentioned in the task, it’s part of making test robust and better
         // Showcase real-life scenario.
         this.acceptCookiesBtn = driver.findElement(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"));
-
-    }
-
-    public void clickCookiesBtn(){
         this.acceptCookiesBtn.click();
     }
 }

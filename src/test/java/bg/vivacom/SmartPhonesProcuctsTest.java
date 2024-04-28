@@ -14,13 +14,13 @@ public class SmartPhonesProcuctsTest {
 
     @BeforeClass
 
-    public void setup(){
+    public void setup() {
         driver = BrowserDriverSetup.getDriver();
         phonesProductsPage = new ProductsPage(driver);
     }
 
     @Test(priority = 1)
-    public void filterDevices(){
+    public void filterDevices() {
 
         phonesProductsPage.initializeSmartPhoneFilters();
         phonesProductsPage.clickSmartPhoneAppleBrandFitter();
@@ -28,8 +28,7 @@ public class SmartPhonesProcuctsTest {
     }
 
     @Test(priority = 2)
-    public void selectApple15Plus128(){
-        phonesProductsPage.initializeProductApple15Plus128();
+    public void selectApple15Plus128() {
         phonesProductsPage.clickApple15Plus128();
     }
 }

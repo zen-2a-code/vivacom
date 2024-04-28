@@ -21,7 +21,6 @@ public class ContinueShoppingTest {
     @Test(priority = 1)
     public static void navigationButtonTest(){
         navigationBarPage.initializeProductPageNavBar();
-
         navigationBarPage.clickProductPageDeviceBtn();
         navigationBarPage.clickProductPageAccessoriesBtn();
     }
@@ -36,7 +35,6 @@ public class ContinueShoppingTest {
 
     @Test (priority = 3)
     public static void selectCaseToTest(){
-        productsPage.initializeProductAppleCase15plus();
         productsPage.clickonCase15plusFineWoven();
     }
     @Test (priority = 4)

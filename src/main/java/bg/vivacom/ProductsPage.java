@@ -1,9 +1,12 @@
 package bg.vivacom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -46,23 +49,34 @@ public class ProductsPage {
     }
 
     public void initializeProductApple15Plus128() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.productApple15Plus128 = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//*[text()='APPLE IPHONE 15 PLUS 128GB+ADAPTER']")));
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        Wait<WebDriver> fluentWait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofMillis(2000))
+                .ignoring(StaleElementReferenceException.class);
+        this.productApple15Plus128 = fluentWait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//h3[text()='APPLE IPHONE 15 PLUS 128GB+ADAPTER']")));
     }
 
     public void initializeProductAppleCase15plus() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.productAppleCaseFineWoven15Plus = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("/html/body/div[@class='background-white main-listing']/div[@class='slot']" +
-                        "/div[@class='widget']/div//a[@href='/online/shop/devices/product-category-accessories/" +
-                        "apple-iphone-15-plus-finewoven-taupe?offer=epc_simfreedevice00000001_so_" +
-                        "vfm230921123929280290']//h3[@class='e-shop-devices-product-details-phone-grid-box-model']")));
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        Wait<WebDriver> fluentWait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofMillis(2000))
+                .ignoring(StaleElementReferenceException.class);
+        this.productAppleCaseFineWoven15Plus = fluentWait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//h3[contains(text(), 'APPLE iPhone 15 Plus FineWoven Taupe')]")));
 
 
     }
 
     public void clickonCase15plusFineWoven() {
+        initializeProductAppleCase15plus();
+        //Not sophisticated, but it works. Some issues arise with elements disappearing due to filters.
+        // Looking forward to feedback.
+        initializeProductAppleCase15plus();
         this.productAppleCaseFineWoven15Plus.click();
     }
 
@@ -77,6 +91,10 @@ public class ProductsPage {
     }
 
     public void clickApple15Plus128() {
+        initializeProductApple15Plus128();
+        // Not sophisticated, but it works. Some issues arise with elements disappearing due to filters.
+        // Looking forward to feedback.
+        initializeProductApple15Plus128();
         this.productApple15Plus128.click();
     }
 

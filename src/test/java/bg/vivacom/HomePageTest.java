@@ -23,13 +23,5 @@ public class HomePageTest {
         navBar.clickHomePageMobileDevices();
     }
 
-    public static void sleep(long milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            // Restore interrupted status
-            Thread.currentThread().interrupt();
-        }
-    }
 }
 

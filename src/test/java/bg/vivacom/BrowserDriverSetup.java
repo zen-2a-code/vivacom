@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
 import java.io.IOException;
 
 public class BrowserDriverSetup {
@@ -16,22 +17,22 @@ public class BrowserDriverSetup {
 
     // This method uses singleton pattern
     @BeforeSuite(groups = {"EndToEndTest"})
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         if (driver == null) {
-//        closeOpenSeasons();
+            closeOpenSeasons();
             initializeDriver();
         }
         return driver;
     }
 
     @AfterSuite(groups = {"EndToEndTest"})
-    public void closeDriver(){
-        if (driver!=null){
+    public void closeDriver() {
+        if (driver != null) {
             driver.quit();
         }
     }
 
-    private static void closeOpenSeasons(){
+    private static void closeOpenSeasons() {
         // Close all Google Chrome windows before opening the page.
         // As per task: Да се изчистват отворени browser-и/сесии преди отварянето на нов browser.
         // This is tested only on Windows as targeted platform. The task never mentions the OS

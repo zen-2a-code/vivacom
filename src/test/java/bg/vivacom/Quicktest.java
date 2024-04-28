@@ -19,7 +19,7 @@ public class Quicktest {
     @Test
     private void sanityTest() {
         WebDriver driver = BrowserDriverSetup.getDriver();
-        driver.get("https://www.vivacom.bg/online/bg/shop/devices/product-category-smart-mobile-phones/apple-iphone-15-plus-128gb-adapter?offer=epc_bew240105094214030522_so_pvw240404165038210468&color=YELLOW&modification=false&duration=24&leasing=true");
+        driver.get("https://www.vivacom.bg/online/bg/shop/devices/product-category-smart-mobile-phones/apple-iphone-15-plus-128gb-adapter?offer=epc_bew240105094214030522_so_pvw240404165038210468");
         WebElement acceptCookiesBtn = driver.findElement(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"));
         acceptCookiesBtn.click();
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
@@ -29,14 +29,14 @@ public class Quicktest {
 //        sleepSeconds(2);
 
 
-
-
-
         ShoppingCardPage page = new ShoppingCardPage(driver);
         SelectedProductPage ppage = new SelectedProductPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        WebElement buyBtn =wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("js-add-to-cart-btn")));
-        buyBtn.click();
+        ppage.initializingUnlimited300();
+        ppage.clickUnlimted300plan();
+        ppage.clickOnetimePaymentUnlimited300();
+        ppage.clickNoFixedService();
+        ppage.clickBuyButton();
         page.clickTandCCheckbox();
         sleepSeconds(5);
 

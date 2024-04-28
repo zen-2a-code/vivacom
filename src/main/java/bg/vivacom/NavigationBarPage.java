@@ -16,25 +16,21 @@ public class NavigationBarPage {
     private WebElement homeMobileDevicesBtn;
 
     private WebElement productPageDevicesDropdownBtn;
-    private WebElement productPageaccessoriesBtn;
+    private WebElement productPageAccessoriesBtn;
 
     public NavigationBarPage(WebDriver driver) {
         this.driver = driver;
-
-
     }
 
 
-    public void clickHomePageDevicesDropDown() {
-        this.homePagedevicesDropDownBtn.click();
-    }
+    public void clickHomePageDevicesDropDown() {this.homePagedevicesDropDownBtn.click();}
 
     public void clickHomePageMobileDevices() {
         this.homeMobileDevicesBtn.click();
     }
 
     public void clickProductPageAccessoriesBtn() {
-        this.productPageaccessoriesBtn.click();
+        this.productPageAccessoriesBtn.click();
     }
 
     public void clickProductPageDeviceBtn() {
@@ -54,7 +50,7 @@ public class NavigationBarPage {
                 By.xpath(
                         "//li[@id='vivacom-devices-navbar']/a[@role='button']")));
 
-        this.productPageaccessoriesBtn =
+        this.productPageAccessoriesBtn =
                 driver.findElement((By.xpath("//li[@id='vivacom-devices-navbar']" +
                         "/ul[@class='dropdown-menu mega-menu']/li[@class='mega-menu-main-part']/ul/div[6]" +
                         "//a[@href='/online/bg/shop/devices/listing?navigation=product-category-accessories']")));
