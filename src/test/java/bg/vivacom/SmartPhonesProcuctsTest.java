@@ -22,9 +22,10 @@ public class SmartPhonesProcuctsTest {
     @Test(priority = 1)
     public void filterDevices() {
 
-        phonesProductsPage.initializeSmartPhoneFilters();
-        phonesProductsPage.clickSmartPhoneAppleBrandFitter();
-        phonesProductsPage.clickSmartPhoneBlueColorFilter();
+        phonesProductsPage.initializeBrandFilters();
+        phonesProductsPage.initializeColorFilters();
+        phonesProductsPage.clickAppleBrandFitterCheckbox();
+        phonesProductsPage.clickSBlueColorFilterCheckbox();
     }
 
     @Test(priority = 2)

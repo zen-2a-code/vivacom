@@ -15,13 +15,10 @@ import java.time.Duration;
 public class ProductsPage {
     private WebDriver driver;
 
-    // SmartPhoneFilters
-    private WebElement smartPhoneBrandAppleFitter;
-    private WebElement smartPhoneBlueColorFilter;
-
-    // Accessories Filters
-    private WebElement accessoriesBrandAppleFilter;
-    private WebElement accessoriesPriceAbove40Filter;
+    // Filters
+    private WebElement brandAppleFitterCheckbox;
+    private WebElement blueColorCheckbox;
+    private WebElement priceAbove40FilterCheckbox;
 
     // Products
     private WebElement productApple15Plus128;
@@ -32,20 +29,21 @@ public class ProductsPage {
         this.driver = driver;
     }
 
-    public void initializeAccessoriesFilters() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.accessoriesBrandAppleFilter = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[@id='filter-manufacturer']/label[2]/em")));
-        this.accessoriesPriceAbove40Filter = this.driver.findElement(By.
-                xpath("//div[@id='filter-price']/label[3]/em")); // TODO find better selector
+
+    public void initializePriceFilters(){
+        this.priceAbove40FilterCheckbox = this.driver.findElement(By.
+                xpath("//input[@class='f-price-more-than-forty radio']/following-sibling::em"));
     }
 
-    public void initializeSmartPhoneFilters() {
+    public void initializeColorFilters(){
+        this.blueColorCheckbox = this.driver.findElement(By.
+                xpath("//input[@class='f-BLUE']/following-sibling::em"));
+    }
+
+    public void initializeBrandFilters() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        this.smartPhoneBrandAppleFitter = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//div[@id='filter-manufacturer']/label[1]/em")));
-        this.smartPhoneBlueColorFilter = this.driver.findElement(By.
-                xpath("//div[@id='filter-colors.color']/label[2]/em")); // TODO find better selector
+        this.brandAppleFitterCheckbox = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//input[@class='f-APPLE']/following-sibling::em")));
     }
 
     public void initializeProductApple15Plus128() {
@@ -80,13 +78,13 @@ public class ProductsPage {
         this.productAppleCaseFineWoven15Plus.click();
     }
 
-    public void clickSmartPhoneAppleBrandFitter() {
-        this.smartPhoneBrandAppleFitter.click();
+    public void clickAppleBrandFitterCheckbox() {
+        this.brandAppleFitterCheckbox.click();
     }
 
-    public void clickSmartPhoneBlueColorFilter() {
+    public void clickSBlueColorFilterCheckbox() {
 
-        this.smartPhoneBlueColorFilter.click();
+        this.blueColorCheckbox.click();
 
     }
 
@@ -98,12 +96,9 @@ public class ProductsPage {
         this.productApple15Plus128.click();
     }
 
-    public void clickAccessoriesBrandAppleFilter() {
-        accessoriesBrandAppleFilter.click();
-    }
 
-    public void clickAccessoriesPriceAbove40Filter() {
-        accessoriesPriceAbove40Filter.click();
+    public void clickPriceAbove40FilterCheckbox() {
+        priceAbove40FilterCheckbox.click();
     }
 
 }

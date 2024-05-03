@@ -33,7 +33,6 @@ public class Quicktest {
         SelectedProductPage ppage = new SelectedProductPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         ppage.initializingUnlimited300();
-        ppage.clickUnlimted300plan();
         ppage.clickOnetimePaymentUnlimited300();
         ppage.clickNoFixedService();
         ppage.clickBuyButton();

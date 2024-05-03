@@ -17,10 +17,10 @@ public class HomePageTest {
         homePage = new HomePage(driver);
         navBar = new NavigationBarPage(driver);
 
-        navBar.initializeHomePageNavBar();
+        navBar.initializeNavBarBtns();
         homePage.clickCookiesBtn();
         navBar.clickHomePageDevicesDropDown();
-        navBar.clickHomePageMobileDevices();
+        navBar.clickNavBarMobileDevices();
     }
 
 }

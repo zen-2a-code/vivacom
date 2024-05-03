@@ -37,10 +37,7 @@ public class ShoppingCardPage {
         if (this.continueShoppingBtn == null) {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             this.continueShoppingBtn =
-                    wait.until(ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath(
-                                    "/html//span[@id='shopping-cart-span']//div[@class='summarize-order-inner']" +
-                                            "/div[5]/div[4]/div[@class='widget']" + "/a[@name='vivacom-cart-link-button-continue-shopping']")));
+                    wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Продължи с пазаруването")));
         }
 
         this.continueShoppingBtn.click();
@@ -101,14 +98,16 @@ public class ShoppingCardPage {
 
     public void initializePurchaseButtons() {
         this.purchaseAsExistingClientBtn = driver.findElement(By.xpath(
-                "//div[@data-position='CartLinkButtonCheckoutCustomer']/div/button"));
+                "//button[text()='Поръчай като настоящ клиент']"));
         this.purchaseAsNewClientBtn = driver.findElement(By.xpath(
-                "//div[@data-position='CartLinkButtonCheckoutSupport']//button"));
+                "//button[text()='Поръчай като нов клиент']"));
     }
 
     public void initializeTotalSum() {
-        this.totalPriceEl = driver.findElement(By.xpath("//div[@class='summarize-order-inner']" +
-                "/div[4]/span[2]"));
+//        this.totalPriceEl = driver.findElement(By.xpath("//div[@class='summarize-order-inner']" +
+//                "/div[4]/span[2]"));
+        this.totalPriceEl = driver.findElement(By.xpath(
+                "//span[starts-with(@class, 'e-care-home-big-bill-price-d')]"));
     }
 
     public void clickTandCCheckbox() {
@@ -121,13 +120,13 @@ public class ShoppingCardPage {
             return this.tAndCCheckbox;
         } else {
             WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
-            this.tAndCCheckbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='shopping-cart-span']/div[1]/aside/div[1]/div/div[5]/div[1]/div/label")));
+            this.tAndCCheckbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+                    "//div[@class='checkbox-with-link-label']/label")));
             return this.tAndCCheckbox;
         }
     }
 
     public String getEmptyBasketText() {
-        //   System.out.println(driver.findElement(By.xpath("//section[@class='col-md-8 col-sm-7 col-xs-12']//p")).getText());
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement basketElTxt =

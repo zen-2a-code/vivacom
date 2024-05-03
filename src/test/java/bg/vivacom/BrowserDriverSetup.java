@@ -19,7 +19,7 @@ public class BrowserDriverSetup {
     @BeforeSuite(groups = {"EndToEndTest"})
     public static WebDriver getDriver() {
         if (driver == null) {
-            closeOpenSeasons();
+//            closeOpenSeasons();
             initializeDriver();
         }
         return driver;

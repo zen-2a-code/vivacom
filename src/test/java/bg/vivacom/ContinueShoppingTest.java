@@ -20,16 +20,17 @@ public class ContinueShoppingTest {
 
     @Test(priority = 1)
     public static void navigationButtonTest(){
-        navigationBarPage.initializeProductPageNavBar();
-        navigationBarPage.clickProductPageDeviceBtn();
-        navigationBarPage.clickProductPageAccessoriesBtn();
+        navigationBarPage.initializeNavBarBtns();
+        navigationBarPage.clickHomePageDevicesDropDown();
+        navigationBarPage.clickNavBarPageAccessoriesBtn();
     }
 
     @Test(priority = 2)
     public static void applyingFiltersTest(){
-        productsPage.initializeAccessoriesFilters();
-        productsPage.clickAccessoriesBrandAppleFilter();
-        productsPage.clickAccessoriesPriceAbove40Filter();
+        productsPage.initializeBrandFilters();
+        productsPage.initializePriceFilters();
+        productsPage.clickAppleBrandFitterCheckbox();
+        productsPage.clickPriceAbove40FilterCheckbox();
 
     }
 
