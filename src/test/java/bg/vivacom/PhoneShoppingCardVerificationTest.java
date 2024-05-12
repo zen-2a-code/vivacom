@@ -1,29 +1,20 @@
 package bg.vivacom;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import bg.vivacom.base.BrowserDriverSetup;
+import bg.vivacom.pages.ShoppingCardPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 @Test(groups = {"EndToEndTest"})
-public class PhoneShoppingCardVerificationTest {
-    private static WebDriver driver;
+public class PhoneShoppingCardVerificationTest extends BrowserDriverSetup {
     private static ShoppingCardPage shoppingCardPage;
 
-    @BeforeClass
-    public void setup() {
-        driver = BrowserDriverSetup.getDriver();
-        shoppingCardPage = new ShoppingCardPage(driver);
-    }
 
     @Test(priority = 1)
     public void verifyShoppingCardUrlTest() {
+        shoppingCardPage = new ShoppingCardPage(driver);
         String expectedUrl = shoppingCardPage.getExpectedShoppingCardUrl();
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = shoppingCardPage.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
     }
 

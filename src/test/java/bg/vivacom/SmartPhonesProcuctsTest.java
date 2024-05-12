@@ -1,29 +1,17 @@
 package bg.vivacom;
-
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeClass;
+import bg.vivacom.base.BrowserDriverSetup;
+import bg.vivacom.pages.ProductsPage;
 import org.testng.annotations.Test;
 
 
 @Test(groups = {"EndToEndTest"})
-public class SmartPhonesProcuctsTest {
-
-
-    private static WebDriver driver;
+public class SmartPhonesProcuctsTest extends BrowserDriverSetup {
     private static ProductsPage phonesProductsPage;
-
-    @BeforeClass
-
-    public void setup() {
-        driver = BrowserDriverSetup.getDriver();
-        phonesProductsPage = new ProductsPage(driver);
-    }
 
     @Test(priority = 1)
     public void filterDevices() {
-
-        phonesProductsPage.initializeBrandFilters();
-        phonesProductsPage.initializeColorFilters();
+        System.out.println(driver);
+        phonesProductsPage = new ProductsPage(driver);
         phonesProductsPage.clickAppleBrandFitterCheckbox();
         phonesProductsPage.clickSBlueColorFilterCheckbox();
     }

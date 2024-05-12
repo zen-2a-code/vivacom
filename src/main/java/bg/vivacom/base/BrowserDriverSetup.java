@@ -1,4 +1,4 @@
-package bg.vivacom;
+package bg.vivacom.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,21 +8,17 @@ import org.testng.annotations.BeforeSuite;
 import java.io.IOException;
 
 public class BrowserDriverSetup {
-    private static WebDriver driver;
+    protected static WebDriver driver;
 
-    private static void initializeDriver() {
+    private void initializeDriver() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-    // This method uses singleton pattern
     @BeforeSuite(groups = {"EndToEndTest"})
-    public static WebDriver getDriver() {
-        if (driver == null) {
-            closeOpenSeasons();
-            initializeDriver();
-        }
-        return driver;
+    public void setUp() {
+        closeOpenSeasons();
+        initializeDriver();
     }
 
     @AfterSuite(groups = {"EndToEndTest"})

@@ -1,23 +1,19 @@
 package bg.vivacom;
 
-import org.openqa.selenium.WebDriver;
+import bg.vivacom.base.BrowserDriverSetup;
+import bg.vivacom.pages.HomePage;
+import bg.vivacom.pages.NavigationBarPage;
 import org.testng.annotations.*;
 
-public class HomePageTest {
-    private WebDriver driver;
-    private HomePage homePage;
-    private NavigationBarPage navBar;
-
+public class HomePageTest extends BrowserDriverSetup {
 
     @Parameters({"vivacomHomePageUrl"})
-    @Test(groups = "EndToEndTest")
+    @Test(groups = "EndToEndTest", priority = 0)
     public void pressingDevicesNavButtonsSequentiallyTest(@Optional("https://www.vivacom.bg/bg") String vivacomHomePageUrl) {
-        driver = BrowserDriverSetup.getDriver();
         driver.get(vivacomHomePageUrl);
-        homePage = new HomePage(driver);
-        navBar = new NavigationBarPage(driver);
+        HomePage homePage = new HomePage(driver);
+        NavigationBarPage navBar = new NavigationBarPage(driver);
 
-        navBar.initializeNavBarBtns();
         homePage.clickCookiesBtn();
         navBar.clickHomePageDevicesDropDown();
         navBar.clickNavBarMobileDevices();

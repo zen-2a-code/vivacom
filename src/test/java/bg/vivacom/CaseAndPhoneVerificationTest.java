@@ -1,32 +1,25 @@
 package bg.vivacom;
 
-import org.openqa.selenium.WebDriver;
+import bg.vivacom.base.BrowserDriverSetup;
+import bg.vivacom.pages.ShoppingCardPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-
 @Test(groups = {"EndToEndTest"})
-public class CaseAndPhoneVerificationTest {
-    private static WebDriver driver;
+public class CaseAndPhoneVerificationTest extends BrowserDriverSetup {
     private static ShoppingCardPage shoppingCardPage;
 
-    @BeforeClass
-    public void setup() {
-        driver = BrowserDriverSetup.getDriver();
-        shoppingCardPage = new ShoppingCardPage(driver);
-    }
 
     @Test(priority = 1)
     public void verifyShoppingCardUrlTest() {
+        shoppingCardPage = new ShoppingCardPage(driver);
         String expectedUrl = shoppingCardPage.getExpectedShoppingCardUrl();
-        String actualUrl = driver.getCurrentUrl();
+        String actualUrl = shoppingCardPage.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
     }
 
     @Test(priority = 2)
     public void checkSumRemoveItemTest() {
-        shoppingCardPage.initializeTotalSum();
         double totalSum = shoppingCardPage.getTotalSum();
 
         if (totalSum > 1680) {
@@ -37,14 +30,12 @@ public class CaseAndPhoneVerificationTest {
 
     @Test(priority = 3)
     public void checkDisableActionsWhenTCAreUncheckedTest() {
-        shoppingCardPage.initializePurchaseButtons();
         Assert.assertTrue(shoppingCardPage.isPurchaseAsExistingClientBtnDisabled());
         Assert.assertTrue(shoppingCardPage.isPurchaseAsNewClientBtnDisabled());
     }
 
     @Test(priority = 4)
     public void checkboxTandCTest() {
-        shoppingCardPage = new ShoppingCardPage(driver);
         Assert.assertNotNull(shoppingCardPage.getCheckboxTnCEl(), "The checkbox should exist.");
         shoppingCardPage.clickTandCCheckbox();
 

@@ -11,7 +11,7 @@
         </groups>
         <classes>
             <class name="bg.vivacom.HomePageTest"/>
-            <class name="bg.vivacom.BrowserDriverSetup"/>
+            <class name="bg.vivacom.base.BrowserDriverSetup"/>
         </classes>
     </test>
 
@@ -42,7 +42,7 @@
         </groups>
         <classes>
             <class name="bg.vivacom.Iphone15PlusTest"/>
-            <class name="bg.vivacom.BrowserDriverSetup"/>
+            <class name="bg.vivacom.base.BrowserDriverSetup"/>
         </classes>
     </test>
 
@@ -54,7 +54,7 @@
         </groups>
         <classes>
             <class name="bg.vivacom.PhoneShoppingCardVerificationTest"/>
-            <class name="bg.vivacom.BrowserDriverSetup"/>
+            <class name="bg.vivacom.base.BrowserDriverSetup"/>
         </classes>
     </test>
 
@@ -66,7 +66,7 @@
         </groups>
         <classes>
             <class name="bg.vivacom.ContinueShoppingTest"/>
-            <class name="bg.vivacom.BrowserDriverSetup"/>
+            <class name="bg.vivacom.base.BrowserDriverSetup"/>
         </classes>
     </test>
 
@@ -78,7 +78,7 @@
         </groups>
         <classes>
             <class name="bg.vivacom.CaseAndPhoneVerificationTest"/>
-            <class name="bg.vivacom.BrowserDriverSetup"/>
+            <class name="bg.vivacom.base.BrowserDriverSetup"/>
         </classes>
     </test>
 

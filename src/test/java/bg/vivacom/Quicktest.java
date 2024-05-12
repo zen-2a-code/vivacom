@@ -1,16 +1,17 @@
 package bg.vivacom;
 
+import bg.vivacom.base.BrowserDriverSetup;
+import bg.vivacom.pages.SelectedProductPage;
+import bg.vivacom.pages.ShoppingCardPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Quicktest {
+public class Quicktest extends BrowserDriverSetup {
 
     @BeforeMethod
     public void startDriver() {
@@ -18,7 +19,6 @@ public class Quicktest {
 
     @Test
     private void sanityTest() {
-        WebDriver driver = BrowserDriverSetup.getDriver();
         driver.get("https://www.vivacom.bg/online/bg/shop/devices/product-category-smart-mobile-phones/apple-iphone-15-plus-128gb-adapter?offer=epc_bew240105094214030522_so_pvw240404165038210468");
         WebElement acceptCookiesBtn = driver.findElement(By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"));
         acceptCookiesBtn.click();
@@ -32,7 +32,6 @@ public class Quicktest {
         ShoppingCardPage page = new ShoppingCardPage(driver);
         SelectedProductPage ppage = new SelectedProductPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        ppage.initializingUnlimited300();
         ppage.clickOnetimePaymentUnlimited300();
         ppage.clickNoFixedService();
         ppage.clickBuyButton();
