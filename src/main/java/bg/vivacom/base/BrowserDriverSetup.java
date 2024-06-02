@@ -17,7 +17,7 @@ public class BrowserDriverSetup {
 
     @BeforeSuite(groups = {"EndToEndTest"})
     public void setUp() {
-        closeOpenSeasons();
+//        closeOpenSeasons();
         initializeDriver();
     }
 

@@ -6,8 +6,9 @@ import org.openqa.selenium.WebDriver;
 
 public class SelectedProductPage extends BasePageObject {
     private By oneTimePaymentUnlimited300Locator = By.xpath(
-            "//div[starts-with(@id,'relatedOfferDiv-epc_bew240105094214030522_so_j')]" +
-                    "//span[@class='e-care-home-big-bill-price-digits js-related-offer-cash-price-span']");
+            "//div[contains(@class, 'offer-container')]//h3[contains(text(), 'Unlimited 300')]" +
+                    "/ancestor::div[contains(@class, 'doi-offer')]/div[@class='plan-listing-box-col-last']/div[2]" +
+                    "//span[contains(@class, 'js-related-offer-cash-price-span')]");
     private By noFixedServiceBtnLocator = By.xpath("//div[@id='xSellBtnData']");
     private By buyBtnLocator = By.xpath("//div[@id='faciaDataHighResView']//button[@type='submit']");
 
